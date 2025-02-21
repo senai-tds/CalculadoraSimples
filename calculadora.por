@@ -24,6 +24,8 @@ programa {
   funcao calcular(cadeia operacao) {
     se (operacao == "+") {
       resultado = n1 + n2
+    } senao se (operacao == "-") {
+      resultado = n1 - n2
     }
   }
 
@@ -38,6 +40,12 @@ programa {
     exibirResultado()
   }
 
+  funcao subtrair() {
+    lerNumeros()
+    calcular("-")
+    exibirResultado()
+  }
+
   funcao menu() {
     inteiro opcao = -1
     
@@ -47,13 +55,16 @@ programa {
       escreva("Escolha uma operacao:\n")
       escreva("  0. Encerrar aplicativo\n")
       escreva("  1. Somar\n")
-      escreva("Opção: ")
+      escreva("  2. Subtrair\n")
+      escreva("Opção: ")  
       leia(opcao)
       
       se (opcao == 0) {
         // não faz nada
       } senao se (opcao == 1) {
         somar()
+      } senao se (opcao == 2) {
+        subtrair()
       } senao {
         esperarTeclarEnter("\nOpção inválida")
       }
